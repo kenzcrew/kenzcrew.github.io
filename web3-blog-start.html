@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>웹3를 향한 도전기 — 블로그 홈페이지 만들기 첫 스타트 — KENZ CREW</title>
+  <meta name="description" content="네이버 블로그 vs 직접 만들기. AI와 함께한 수십 번의 수정, 외계인 로고, 파리 눈 사건까지. KENZ CREW 블로그 탄생기." />
+  <meta name="keywords" content="웹3, 블로그만들기, GitHub, Vercel, AI코딩, 바이브코딩, KENZ CREW" />
+  <meta name="author" content="Jaz" />
+  <link rel="canonical" href="https://kenzcrew.github.io/web3-blog-start.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="웹3를 향한 도전기 — 블로그 홈페이지 만들기 첫 스타트" />
+  <meta property="og:description" content="AI와 함께한 수십 번의 수정, 외계인 로고, 파리 눈 사건까지. KENZ CREW 블로그 탄생기." />
+  <meta property="og:url" content="https://kenzcrew.github.io/web3-blog-start.html" />
+  <meta property="og:site_name" content="KENZ CREW" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "웹3를 향한 도전기 — 블로그 홈페이지 만들기 첫 스타트",
+    "author": { "@type": "Person", "name": "Jaz" },
+    "publisher": { "@type": "Organization", "name": "KENZ CREW" },
+    "datePublished": "2025-05-21",
+    "url": "https://kenzcrew.github.io/web3-blog-start.html"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #b8943a; --gold-light: #e8d89a; --gold-pale: #fdf3d0;
+      --cream: #fffdf5; --white: #ffffff; --ink: #1a1a1a;
+      --ink-mid: #444; --ink-light: #888; --ink-faint: #bbb; --border: #f0e8c8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: 4px; }
+    .nav-tagline { font-size: 9px; color: var(--gold); letter-spacing: 2px; }
+    .nav-back { font-size: 12px; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+    .article-header { background: var(--cream); border-bottom: 1px solid var(--border); padding: 4rem 0 3rem; }
+    .article-header-inner { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+    .article-cat { font-size: 10px; background: var(--gold); color: white; padding: 3px 12px; border-radius: 20px; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; }
+    .article-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 16px; }
+    .article-subtitle { font-size: 17px; color: var(--ink-light); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    .article-meta { display: flex; align-items: center; gap: 16px; font-size: 12px; color: var(--ink-faint); padding-top: 20px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .article-meta-author { color: var(--gold); font-weight: 500; }
+    .article-tags { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+    .article-tag { font-size: 10px; color: #8a6a1a; background: var(--gold-pale); padding: 2px 8px; border-radius: 20px; }
+    .article-body { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .article-body p { font-size: 17px; line-height: 1.9; color: var(--ink-mid); margin-bottom: 1.6rem; }
+    .article-body p.lead { font-size: 19px; color: var(--ink); font-weight: 400; line-height: 1.8; }
+    .article-body blockquote { border-left: 3px solid var(--gold); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--gold-pale); border-radius: 0 8px 8px 0; }
+    .article-body blockquote p { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--ink); margin: 0; line-height: 1.6; }
+    .article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 500; color: var(--ink); margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .article-body .highlight { background: var(--gold-pale); border: 1px solid var(--gold-light); border-radius: 10px; padding: 1.2rem 1.5rem; margin: 2rem 0; }
+    .article-body .highlight p { margin: 0; color: var(--ink); font-size: 16px; }
+    .logo-compare { display: flex; gap: 12px; margin: 1.5rem 0; }
+    .logo-compare figure { flex: 1; min-width: 0; }
+    .logo-compare img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); }
+    .logo-compare figcaption { font-size: 11px; color: var(--ink-faint); text-align: center; margin-top: 6px; font-style: italic; }
+    .article-closing { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .article-closing p { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--gold); margin: 0; line-height: 1.8; }
+    .article-nav { background: var(--cream); border-top: 1px solid var(--border); padding: 2rem; display: flex; justify-content: center; }
+    .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-light); text-decoration: none; padding: 10px 20px; border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s; }
+    .back-btn:hover { border-color: var(--gold); color: var(--gold); }
+    footer { background: var(--cream); border-top: 1px solid var(--border); padding: 1.2rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-left { font-size: 11px; color: var(--ink-faint); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 500; color: var(--gold); letter-spacing: 3px; }
+    @media (max-width: 768px) {
+      nav { padding: 0 1.5rem; }
+      .article-header { padding: 2.5rem 0 2rem; }
+      .article-title { font-size: 28px; }
+      .article-body p { font-size: 16px; }
+      footer { padding: 1rem 1.5rem; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-logo">KENZ CREW</div>
+    <div class="nav-tagline">우리가 보는 내일</div>
+  </a>
+  <a href="index.html" class="nav-back">← 홈으로</a>
+</nav>
+
+<header class="article-header">
+  <div class="article-header-inner">
+    <span class="article-cat">🤖 AI & 넥스트</span>
+    <h1 class="article-title">웹3를 향한 도전기 —<br>블로그 홈페이지 만들기, 첫 스타트</h1>
+    <p class="article-subtitle">네이버 블로그로 할까, 직접 만들까. 그 고민에서 시작된 며칠간의 여정.</p>
+    <div class="article-meta">
+      <span class="article-meta-author">by Jaz</span>
+      <span>2025. 05. 21</span>
+      <span>7분 읽기</span>
+      <div class="article-tags">
+        <span class="article-tag">#웹3</span>
+        <span class="article-tag">#블로그만들기</span>
+        <span class="article-tag">#AI도전기</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article class="article-body">
+
+  <p class="lead">솔직히 말하면, 처음엔 그냥 네이버 블로그 쓰려고 했다. 익숙하고, 편하고, 검색도 잘 된다고 하니까. 근데 뭔가 자꾸 마음에 걸렸다.</p>
+
+  <p>웹3에 관심이 있다고 하면서, 내 콘텐츠를 남의 플랫폼에 올리는 게 맞나? 수익화도 결국 네이버 규칙 안에서만 가능하고, 언젠가 정책이 바뀌면 그동안 쌓은 게 다 날아갈 수도 있는데. 나중에 NFT도 연동하고 싶고, Ellie 갤러리도 붙이고 싶은데 — 네이버에서는 꿈도 못 꿀 이야기다.</p>
+
+  <blockquote><p>"완전 내 것. 그게 웹3 정신이잖아."</p></blockquote>
+
+  <p>그래서 Claude한테 물어봤다. "나 블로그 만들고 싶은데, 어디서 해?" 그게 이 모든 고생의 시작이었다. ㅋㅋ</p>
+
+  <h2>이름부터 정하자 — KENZ CREW의 탄생</h2>
+
+  <p>사실 이 이름은 내가 지은 게 아니다. Ellie가 지었다. Kenny, Ellie, Noella, Jaz — 가족 네 명의 이름 앞글자를 따서 KENZ. 처음 들었을 때 너무 잘 지어서 내가 더 놀랐다. 우리 가족 단톡방 이름도 이미 이거다. ㅋㅋ 브랜드가 아니라 진짜 우리 가족의 이름 같은 느낌 — 그래서 더 마음에 들었다.</p>
+
+  <p>슬로건도 한참 고민했다. "가족이 함께 읽는 미래", "우리가 보는 내일", "Living Beyond the Curve"... 결국 셋 다 썼다. 버리기 아까워서 ㅋㅋ 각자 역할이 생겼다. 로고 옆엔 "우리가 보는 내일", 그 밑엔 영어 슬로건. 페이지 맨 아래 푸터(footer — 웹페이지 하단 영역)엔 "가족이 함께 읽는 미래". 나름 완벽한 배치다.</p>
+
+  <h2>색깔 고르는 것도 일이다</h2>
+
+  <p>다크 블랙에 네온 — 너무 사이버. 버건디에 크림 — 감성은 있는데 뭔가 아쉬워. 화이트에 골드 — 딱이다. 고급스럽고 미래적이면서도 따뜻한 느낌. 나중에 질리면 네이비 골드로 바꿀 수 있다는 것도 마음에 들었다.</p>
+
+  <div class="highlight">
+    <p>처음 까만 배경으로 만들어줬을 때 한 마디 했다. "너무 까만 거 같아서 배경이..." 그랬더니 Claude가 바로 밝은 버전 네 가지를 만들어줬다. 골라보는 재미가 있었다.</p>
+  </div>
+
+  <h2>로고 사건 — 외계인 안경과 파리 눈</h2>
+
+  <p>이게 가장 웃긴 파트다. INFINITE WORLD — 무한한 세상, 무한한 가능성. 무한대 기호 안에 지구본 격자를 넣자는 아이디어는 좋았다. 근데 막상 Claude가 그려온 게...</p>
+
+  <div class="logo-compare">
+    <figure>
+      <img src="logo-cd.png" alt="크리스찬 디올 시안" />
+      <figcaption>Claude 작 1호 — "크리스찬 디올"</figcaption>
+    </figure>
+    <figure>
+      <img src="logo-alien.jpg" alt="외계인 안경 시안" />
+      <figcaption>Claude 작 2호 — "외계인 안경"</figcaption>
+    </figure>
+    <figure>
+      <img src="logo-fly.jpg" alt="파리 눈 시안" />
+      <figcaption>다른 AI 작 — "파리 눈"</figcaption>
+    </figure>
+  </div>
+
+  <p>결국 직접 다른 곳에서 제대로 된 로고를 만들어서 가져왔다. 두 개의 지구본이 무한대로 연결되는 그 이미지 — 지금 홈페이지에서 볼 수 있다. AI들아 반성해라. ㅋㅋㅋㅋ</p>
+
+  <h2>GitHub, Vercel — 생전 처음 들어본 것들</h2>
+
+  <p>코딩 경험 제로. GitHub가 뭔지도 몰랐다. 그냥 "무료로 내 사이트 올릴 수 있는 곳"이라고 이해하고 가입했다. 처음엔 파일 이름에 괄호가 들어가서 사이트가 안 열렸다. index (1).html — 이게 문제였다. 그 다음엔 Issues 탭에 파일을 올렸다. ㅋㅋㅋ (Issues 탭은 지금도 뭔지 모른다. 어떻게 지우는지도 모른다.... ㅜ)</p>
+
+  <div class="highlight">
+    <p>Vercel 연동하고 나서부터는 진짜 자동화가 됐다. GitHub에 파일 올리면 30초 안에 사이트에 반영된다. 이게 돼? 싶었는데 진짜 된다. 완전 무료로.</p>
+  </div>
+
+  <h2>Claude, 솔직한 후기</h2>
+
+  <p>솔직히 말하면 여러 AI를 돌아다녔다. 지금은(?) Claude로 정착했다. 코드는 확실히 C가 잘하더라고. 근데 단점은, 진짜 돈 먹는 하마다. 뭐 좀 하다 보면 "몇 시까지 기다려" 라고 한다. 처음 며칠은 진짜 기다렸는데, 다른 일(업무)도 해야 하고 해서 그냥 유료 결제를 해버렸다.</p>
+
+  <p>그래도 고등학교, 대학 때 HTML 조금 그적거려본 이후 손도 안 댔는데, 불혹의 나이에 책 한 번 펼쳐보지 않고도 홈페이지를 뚝딱 만들다니.. 언벌리버블! 물론 내가 직접 수십 번 수정 요청하고, 파일 올리고, 새로고침하고... 그 노동력은 별도지만 ㅎㅎ. 그리고 로고는 외계인처럼 그려놔서 결국 다른 데 가서 만들어 왔다는 건 안비밀이지만... ㅋㅋ</p>
+
+  <h2>그래서 지금은?</h2>
+
+  <p>kenzcrew.github.io — 이게 이제 내 공간이다. 완전히 내 것. 네이버 눈치 안 봐도 되고, 정책 바뀔 걱정 안 해도 된다. 나중에 Ellie 그림 갤러리도 붙이고, NFT 민팅도 연동하고, 뉴스레터도 붙일 수 있다. 지금은 시작일 뿐이다.</p>
+
+  <p>카테고리는 네 개 — 미래 교육, 매크로 자산학, 웹3 & 크립토, AI & 넥스트. 전부 내 삶에서 진짜 고민하고 있는 것들이다. 전문가의 분석이 아니라, 한 사람의 도전과 실패와 배움이 담긴 이야기들. 그게 이 블로그의 정체성이다.</p>
+
+  <div class="article-closing">
+    <p>일단 탔다.<br>자리는 가면서 찾는다.<br>— KENZ CREW 첫 번째 챕터, 시작.</p>
+  </div>
+
+</article>
+
+<div class="article-nav">
+  <a href="index.html" class="back-btn">← 목록으로 돌아가기</a>
+</div>
+
+<footer>
+  <div class="footer-left">가족이 함께 읽는 미래 · © 2025 KENZ CREW</div>
+  <div class="footer-logo">by Jaz</div>
+</footer>
+
+</body>
+</html>
